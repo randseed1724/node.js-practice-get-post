@@ -41,15 +41,16 @@ app.post('/fake-login', (req, res, next) => {
   console.log('POST submission!');
   console.log( req.body );
     // req.query = {}
+let email = req.body.email;
+let password = req.body.password;
+const emailIron = "ironhacker@gmail.com";
+const pIron = "password";
 
-  res.render(
-    'user-data-view.ejs',
-    {
-      fullName: 'None',
-      email:    req.body.userEmail,
-      password: req.body.userPassword
-    }
-  );
+if (email === emailIron && pIron === password ){
+  res.render('welcome-view.ejs');
+} else {
+  res.render('go-away-view.ejs');
+}
 });
 
 app.listen(3000);
